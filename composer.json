@@ -1,0 +1,45 @@
+{
+    "name": "faustbrian/laravel-browsershot",
+    "description": "Take a screenshot of a website",
+    "keywords": ["laravel", "framework", "Laravel-Browsershot", "Laravel Browsershot", "Brian Faust", "faustbrian"],
+    "license": "MIT",
+    "authors": [{
+        "name": "Brian Faust",
+        "email": "hello@brianfaust.de",
+        "homepage": "https://brianfaust.de",
+        "role": "Developer"
+    }],
+    "require": {
+        "php": "^7.0",
+        "illuminate/support": "5.1.* || 5.2.* || 5.3.*",
+        "faustbrian/laravel-service-provider": "^1.0",
+        "intervention/image": "^2.3"
+    },
+    "require-dev": {
+        "graham-campbell/testbench": "^3.1",
+        "mockery/mockery": "^0.9.4",
+        "phpunit/phpunit": "^5.0",
+        "scrutinizer/ocular": "~1.1",
+        "squizlabs/php_codesniffer": "~2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "BrianFaust\\Browsershot\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BrianFaust\\Tests\\Browsershot\\": "tests"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
