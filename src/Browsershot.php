@@ -249,6 +249,23 @@ class Browsershot
     }
 
     /**
+     * @param string $preset
+     *
+     * @throws \Exception
+     *
+     * @return array
+     */
+    public function getPreset(string $preset) : array
+    {
+        $key = "browsershot.presets.$preset";
+        
+        if (!$this->config->has($key)) {
+            throw new Exception("$preset does not exist.");
+        }
+
+        return $this->config->get($key);
+    }
+    /**
      * Take the screenshot.
      *
      * @param string $targetFile
