@@ -6,12 +6,11 @@
     "authors": [{
         "name": "Brian Faust",
         "email": "hello@brianfaust.de",
-        "homepage": "https://brianfaust.de",
-        "role": "Developer"
+        "homepage": "https://brianfaust.de"
     }],
     "require": {
         "php": "^7.0",
-        "illuminate/support": "5.2.* || 5.3.*",
+        "illuminate/support": "5.3.*",
         "faustbrian/laravel-service-provider": "^1.0",
         "intervention/image": "^2.3"
     },
