@@ -21,8 +21,6 @@ class BrowsershotServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        parent::boot();
-
         $this->publishViews();
 
         $this->loadViews();
