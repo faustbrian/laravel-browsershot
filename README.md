@@ -11,9 +11,7 @@ $ composer require faustbrian/laravel-browsershot
 And then include the service provider within `app/config/app.php`.
 
 ``` php
-'providers' => [
-    BrianFaust\Browsershot\BrowsershotServiceProvider::class
-];
+BrianFaust\Browsershot\BrowsershotServiceProvider::class
 ```
 
 If you want you can use the [facade](http://laravel.com/docs/facades). Add the reference in `config/app.php` to your aliases array.
