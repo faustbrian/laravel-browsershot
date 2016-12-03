@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace BrianFaust\Browsershot;
 
 use Exception;
@@ -83,7 +85,7 @@ class Browsershot
      *
      * @return $this
      */
-    public function setBinPath($binPath) : Browsershot
+    public function setBinPath($binPath): Browsershot
     {
         if (!file_exists($binPath)) {
             throw new Exception("$binPath does not exist.");
@@ -101,7 +103,7 @@ class Browsershot
      *
      * @return $this
      */
-    public function setPreset(string $preset) : Browsershot
+    public function setPreset(string $preset): Browsershot
     {
         if (!$this->config->has("browsershot.presets.$preset")) {
             throw new Exception("$preset does not exist.");
@@ -122,7 +124,7 @@ class Browsershot
      *
      * @return $this
      */
-    public function setWidth(int $width) : Browsershot
+    public function setWidth(int $width): Browsershot
     {
         $this->width = $width;
 
@@ -136,7 +138,7 @@ class Browsershot
      *
      * @return $this
      */
-    public function setHeight(int $height) : Browsershot
+    public function setHeight(int $height): Browsershot
     {
         $this->height = $height;
 
@@ -152,7 +154,7 @@ class Browsershot
      *
      * @return $this
      */
-    public function setQuality(int $quality) : Browsershot
+    public function setQuality(int $quality): Browsershot
     {
         if ($quality < 1 || $quality > 100) {
             throw new Exception('Quality must be a numeric value between 1 - 100');
@@ -170,7 +172,7 @@ class Browsershot
      *
      * @return $this
      */
-    public function setBackgroundColor($backgroundColor) : Browsershot
+    public function setBackgroundColor($backgroundColor): Browsershot
     {
         $this->backgroundColor = $backgroundColor;
 
@@ -182,7 +184,7 @@ class Browsershot
      *
      * @return $this
      */
-    public function setHeightToRenderWholePage() : Browsershot
+    public function setHeightToRenderWholePage(): Browsershot
     {
         $this->height = 0;
 
@@ -196,7 +198,7 @@ class Browsershot
      *
      * @return $this
      */
-    public function setUri(string $uri) : Browsershot
+    public function setUri(string $uri): Browsershot
     {
         $this->uri = $uri;
 
@@ -210,7 +212,7 @@ class Browsershot
      *
      * @return $this
      */
-    public function setTimeout(int $timeout) : Browsershot
+    public function setTimeout(int $timeout): Browsershot
     {
         $this->timeout = $timeout;
 
@@ -226,7 +228,7 @@ class Browsershot
      *
      * @return bool
      */
-    public function save(string $targetFile) : bool
+    public function save(string $targetFile): bool
     {
         $validator = Validator::make([
             'targetFile' => pathinfo($targetFile, PATHINFO_EXTENSION),
@@ -264,7 +266,7 @@ class Browsershot
      *
      * @return array
      */
-    public function getPreset(string $preset) : array
+    public function getPreset(string $preset): array
     {
         $key = "browsershot.presets.$preset";
 
@@ -300,7 +302,7 @@ class Browsershot
      *
      * @return string
      */
-    protected function getPhantomJsScript($targetFile) : string
+    protected function getPhantomJsScript($targetFile): string
     {
         return view('browsershot::phantomjs', [
             'timeout'         => $this->timeout,

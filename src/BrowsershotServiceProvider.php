@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace BrianFaust\Browsershot;
 
 use BrianFaust\ServiceProvider\ServiceProvider;
@@ -19,7 +21,7 @@ class BrowsershotServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot()
+    public function boot(): void
     {
         $this->publishViews();
 
@@ -29,7 +31,7 @@ class BrowsershotServiceProvider extends ServiceProvider
     /**
      * Register the application services.
      */
-    public function register()
+    public function register(): void
     {
         parent::register();
 
@@ -54,7 +56,7 @@ class BrowsershotServiceProvider extends ServiceProvider
      *
      * @return array
      */
-    public function provides()
+    public function provides(): array
     {
         return array_merge(parent::provides(), [
             ImageServiceProvider::class,
@@ -66,7 +68,7 @@ class BrowsershotServiceProvider extends ServiceProvider
      *
      * @return string
      */
-    public function getPackageName()
+    public function getPackageName(): string
     {
         return 'browsershot';
     }
