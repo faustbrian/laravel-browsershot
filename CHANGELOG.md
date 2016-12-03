@@ -2,19 +2,8 @@
 
 All Notable changes to `faustbrian/laravel-browsershot` will be documented in this file.
 
-## NEXT - YYYY-MM-DD
+## 1.0.1 (13/11/2016)
+- Add getPreset
 
-### Added
-- Nothing
-
-### Deprecated
-- Nothing
-
-### Fixed
-- Nothing
-
-### Removed
-- Nothing
-
-### Security
-- Nothing
+## 1.0.0 (12/11/2016)
+- First release
