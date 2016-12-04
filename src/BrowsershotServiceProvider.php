@@ -22,10 +22,10 @@ declare(strict_types=1);
 
 namespace BrianFaust\Browsershot;
 
-use BrianFaust\ServiceProvider\ServiceProvider;
+use BrianFaust\ServiceProvider\AbstractServiceProvider;
 use Intervention\Image\ImageServiceProvider;
 
-class BrowsershotServiceProvider extends ServiceProvider
+class BrowsershotServiceProvider extends AbstractServiceProvider
 {
     /**
      * Bootstrap any application services.
