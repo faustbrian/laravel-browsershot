@@ -29,7 +29,7 @@ class Browsershot extends Facade
     /**
      * @return string
      */
-    protected static function getFacadeAccessor()
+    protected static function getFacadeAccessor(): string
     {
         return \BrianFaust\Browsershot\Browsershot::class;
     }
