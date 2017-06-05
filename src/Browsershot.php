@@ -1,8 +1,5 @@
 <?php
 
-
-declare(strict_types=1);
-
 /*
  * This file is part of Laravel Browsershot.
  *
@@ -106,11 +103,11 @@ class Browsershot
      */
     public function setPreset(string $preset): self
     {
-        if (!$this->config->has("browsershot.presets.$preset")) {
+        if (!$this->config->has("laravel-browsershot.presets.$preset")) {
             throw new Exception("$preset does not exist.");
         }
 
-        $preset = config("browsershot.presets.$preset");
+        $preset = config("laravel-browsershot.presets.$preset");
 
         $this->setWidth($preset['width']);
         $this->setHeight($preset['height']);
@@ -233,10 +230,10 @@ class Browsershot
     {
         $validator = Validator::make([
             'targetFile' => pathinfo($targetFile, PATHINFO_EXTENSION),
-            'uri'        => $this->uri,
+            'uri' => $this->uri,
         ], [
             'targetFile' => ['required', Rule::in(['jpeg', 'jpg', 'png'])],
-            'uri'        => 'required|url',
+            'uri' => 'required|url',
         ]);
 
         if ($validator->fails()) {
@@ -269,7 +266,7 @@ class Browsershot
      */
     public function getPreset(string $preset): array
     {
-        $key = "browsershot.presets.$preset";
+        $key = "laravel-browsershot.presets.$preset";
 
         if (!$this->config->has($key)) {
             throw new Exception("$preset does not exist.");
@@ -283,7 +280,7 @@ class Browsershot
      *
      * @param string $targetFile
      */
-    protected function takeScreenShot(string $targetFile): void
+    protected function takeScreenShot(string $targetFile)
     {
         $tempJsFileHandle = tmpfile();
 
@@ -306,12 +303,12 @@ class Browsershot
     protected function getPhantomJsScript($targetFile): string
     {
         return view('browsershot::phantomjs', [
-            'timeout'         => $this->timeout,
-            'width'           => $this->width,
-            'height'          => $this->height,
-            'uri'             => $this->uri,
+            'timeout' => $this->timeout,
+            'width' => $this->width,
+            'height' => $this->height,
+            'uri' => $this->uri,
             'backgroundColor' => $this->backgroundColor,
-            'targetFile'      => $targetFile,
+            'targetFile' => $targetFile,
         ])->render();
     }
 }

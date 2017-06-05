@@ -1,8 +1,5 @@
 <?php
 
-
-declare(strict_types=1);
-
 /*
  * This file is part of Laravel Browsershot.
  *
@@ -14,29 +11,29 @@ declare(strict_types=1);
 
 namespace BrianFaust\Browsershot;
 
-use BrianFaust\ServiceProvider\AbstractServiceProvider;
+use Illuminate\Support\ServiceProvider;
 use Intervention\Image\ImageServiceProvider;
 
-class BrowsershotServiceProvider extends AbstractServiceProvider
+class BrowsershotServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
+    public function boot()
     {
-        $this->publishViews();
+        $this->publishes([
+            __DIR__.'/../resources/views' => base_path('resources/views/vendor/laravel-browsershot'),
+        ], 'views');
 
-        $this->loadViews();
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-browsershot');
     }
 
     /**
      * Register the application services.
      */
-    public function register(): void
+    public function register()
     {
-        parent::register();
-
-        $this->mergeConfig();
+        $this->mergeConfigFrom(__DIR__.'/../config/laravel-browsershot.php', 'laravel-browsershot');
 
         $this->app->register(ImageServiceProvider::class);
 
@@ -50,27 +47,5 @@ class BrowsershotServiceProvider extends AbstractServiceProvider
                     ->setBackgroundColor($config['background_color'])
                     ->setTimeout($config['timeout']);
         });
-    }
-
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
-    public function provides(): array
-    {
-        return array_merge(parent::provides(), [
-            ImageServiceProvider::class,
-        ]);
-    }
-
-    /**
-     * Get the default package name.
-     *
-     * @return string
-     */
-    public function getPackageName(): string
-    {
-        return 'browsershot';
     }
 }
