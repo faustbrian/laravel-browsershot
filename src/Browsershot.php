@@ -230,10 +230,10 @@ class Browsershot
     {
         $validator = Validator::make([
             'targetFile' => pathinfo($targetFile, PATHINFO_EXTENSION),
-            'uri'        => $this->uri,
+            'uri' => $this->uri,
         ], [
             'targetFile' => ['required', Rule::in(['jpeg', 'jpg', 'png'])],
-            'uri'        => 'required|url',
+            'uri' => 'required|url',
         ]);
 
         if ($validator->fails()) {
@@ -303,12 +303,12 @@ class Browsershot
     protected function getPhantomJsScript($targetFile): string
     {
         return view('browsershot::phantomjs', [
-            'timeout'         => $this->timeout,
-            'width'           => $this->width,
-            'height'          => $this->height,
-            'uri'             => $this->uri,
+            'timeout' => $this->timeout,
+            'width' => $this->width,
+            'height' => $this->height,
+            'uri' => $this->uri,
             'backgroundColor' => $this->backgroundColor,
-            'targetFile'      => $targetFile,
+            'targetFile' => $targetFile,
         ])->render();
     }
 }

@@ -35,8 +35,24 @@ class BrowsershotServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/laravel-browsershot.php', 'laravel-browsershot');
 
-        $this->app->register(ImageServiceProvider::class);
+        $this->registerProviders();
 
+        $this->registerBuilder();
+    }
+
+    /**
+     * Register the third-party service providers.
+     */
+    private function registerProviders()
+    {
+        $this->app->register(ImageServiceProvider::class);
+    }
+
+    /**
+     * Register the builder.
+     */
+    private function registerBuilder()
+    {
         $this->app->singleton(Browsershot::class, function ($app) {
             $config = $app->config->get('browsershot');
 
