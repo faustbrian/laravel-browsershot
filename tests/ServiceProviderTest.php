@@ -27,7 +27,8 @@ class ServiceProviderTest extends AbstractTestCase
      *
      * @return string
      */
-    protected function getServiceProviderClass($app) {
+    protected function getServiceProviderClass($app)
+    {
         return BrowsershotServiceProvider::class;
     }
 }
