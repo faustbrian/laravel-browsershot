@@ -14,11 +14,11 @@ declare(strict_types=1);
 namespace BrianFaust\Browsershot;
 
 use Exception;
-use Illuminate\Validation\Rule;
-use Intervention\Image\ImageManager;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Config\Repository as Config;
 use Illuminate\Filesystem\FilesystemManager;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+use Intervention\Image\ImageManager;
 
 /**
  * Class Browsershot.
@@ -87,7 +87,7 @@ class Browsershot
      */
     public function setBinPath($binPath): self
     {
-        if (! file_exists($binPath)) {
+        if (!file_exists($binPath)) {
             throw new Exception("$binPath does not exist.");
         }
 
@@ -105,7 +105,7 @@ class Browsershot
      */
     public function setPreset(string $preset): self
     {
-        if (! $this->config->has("laravel-browsershot.presets.$preset")) {
+        if (!$this->config->has("laravel-browsershot.presets.$preset")) {
             throw new Exception("$preset does not exist.");
         }
 
@@ -244,7 +244,7 @@ class Browsershot
 
         $this->takeScreenShot($targetFile);
 
-        if (! file_exists($targetFile) || filesize($targetFile) < 1024) {
+        if (!file_exists($targetFile) || filesize($targetFile) < 1024) {
             throw new Exception('could not create screenshot');
         }
 
@@ -270,7 +270,7 @@ class Browsershot
     {
         $key = "laravel-browsershot.presets.$preset";
 
-        if (! $this->config->has($key)) {
+        if (!$this->config->has($key)) {
             throw new Exception("$preset does not exist.");
         }
 
