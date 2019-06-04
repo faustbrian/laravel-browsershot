@@ -1,12 +1,12 @@
 {
-    "name": "faustbrian/laravel-browsershot",
+    "name": "artisanry/browsershot",
     "description": "Take a screenshot of a website",
-    "keywords": ["laravel", "framework", "Laravel-Browsershot", "Laravel Browsershot", "Brian Faust", "faustbrian"],
+    "keywords": ["laravel", "framework", "Laravel-Browsershot", "Laravel Browsershot"],
     "license": "MIT",
     "authors": [{
         "name": "Brian Faust",
-        "email": "hello@brianfaust.me",
-        "homepage": "https://brianfaust.me"
+        "email": "hello@basecode.sh",
+        "homepage": "https://basecode.sh"
     }],
     "require": {
         "php": "^7.1",
@@ -20,12 +20,12 @@
     },
     "autoload": {
         "psr-4": {
-            "BrianFaust\\Browsershot\\": "src/"
+            "Artisanry\\Browsershot\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "BrianFaust\\Tests\\Browsershot\\": "tests"
+            "Artisanry\\Tests\\Browsershot\\": "tests"
         }
     },
     "config": {
@@ -38,10 +38,10 @@
         },
         "laravel": {
             "providers": [
-                "BrianFaust\\Browsershot\\BrowsershotServiceProvider"
+                "Artisanry\\Browsershot\\BrowsershotServiceProvider"
             ],
             "aliases": {
-                "Browsershot": "BrianFaust\\Browsershot\\Facades\\Browsershot"
+                "Browsershot": "Artisanry\\Browsershot\\Facades\\Browsershot"
             }
         }
     },
