@@ -16,8 +16,7 @@ $ composer require artisanry/browsershot
 ## Usage
 
 ``` php
-$browsershot = new Artisanry\Browsershot\Browsershot();
-$browsershot
+app(Artisanry\Browsershot\Browsershot::class)
     ->setUri('http://www.google.com')
     ->setPreset('apple_iphone_7')
     // ->setWidth(375)
